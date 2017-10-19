@@ -6,10 +6,11 @@ class EntriesController < ApplicationController
   end
 
   def create
-  	binding.pry
-		@entry =Entry.new(entry_params)
-		@entry.save
+  	/binding.pry/
+		entry =Entry.new(entry_params)
+		entry.save
 		flash[:notice] = "entry created"
+		redirect_to entries_path
 	end
 
 	def entry_params
