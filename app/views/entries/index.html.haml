@@ -1,0 +1,13 @@
+= link_to "Home",root_path
+%h3 All entries
+- @entries.each do |entry|
+	=entry.title
+	=entry.invoice_number
+	%br
+%h3 Add new Invoice
+= form_for Entry.new, url: {action: "create"}, html: {class: "nifty_form"} do |f|
+	= label_tag do
+		Title
+		= f.text_field :title
+	= f.number_field :invoice_number
+	= f.submit "Create"
